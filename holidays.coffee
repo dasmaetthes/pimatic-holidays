@@ -52,7 +52,7 @@ module.exports = (env) ->
       # ...
 
       # update the presence value at midnight
-      midnight = "00:00"
+      midnight = '00:00'
       now = null
 
       setInterval (->
@@ -60,8 +60,6 @@ module.exports = (env) ->
         now = ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2)
         if now == midnight
           @_setPresence()
-        $('#time').text now
-        return
       ), 60000
 
       super()
