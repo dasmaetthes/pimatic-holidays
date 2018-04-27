@@ -52,6 +52,9 @@ module.exports = (env) ->
       # ...
 
       # update the presence value at midnight
+      midnight = "00:00"
+      now = null
+
       setInterval (->
         d = new Date
         now = ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2)
