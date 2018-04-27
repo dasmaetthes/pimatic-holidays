@@ -51,10 +51,15 @@ module.exports = (env) ->
       @_presence = false
       # ...
 
-      # update the presence value every 5 seconds
-      setInterval( ( => 
-        @_setPresence()
-      ), 5000)
+      # update the presence value at midnight
+      setInterval (->
+        d = new Date
+        now = ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2)
+        if now == midnight
+          @_setPresence()
+        $('#time').text now
+        return
+      ), 60000
 
       super()
       
