@@ -50,18 +50,18 @@ module.exports = (env) ->
       @_holidaytype = "none"
       @_presence = false
       # ...
-
+      
       # update the presence value at midnight
       midnight = '00:00'
       now = null
-
-      setInterval (->
+      
+      setInterval((=>
         d = new Date
         now = ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2)
         if now == midnight
           @_setPresence()
-      ), 60000
-
+      ), 60000)
+      
       super()
       
     attributes:
