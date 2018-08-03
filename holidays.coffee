@@ -63,7 +63,8 @@ module.exports = (env) ->
       ), 60000)
       
       super()
-      
+      @_setPresence()
+	  
     attributes:
       presence:
         description: "holiday yes/no"
